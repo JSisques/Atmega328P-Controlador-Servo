@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.8  C:\Users\Javie\Documents\Atmel Studio\7.0\Controlador Servo\Controlador Servo\main.asm Thu May 20 11:50:11 2021
+AVRASM ver. 2.2.8  C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm Fri May 21 10:25:03 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m328Pdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m328Pdef.inc'
@@ -993,24 +993,24 @@ AVRASM ver. 2.2.8  C:\Users\Javie\Documents\Atmel Studio\7.0\Controlador Servo\C
                                  	derecha:
 000003 ef1f                      		SER R17
 000004 b915                      		OUT portb, r17
-000005 940e 0031                 		CALL delay_0_75ms
+000005 940e 0035                 		CALL delay_0_75ms
 000007 2711                      		CLR R17
 000008 b915                      		OUT portb, R17
 000009 940e 0019                 		Call delay_19ms
 00000b 950a                      		dec R16
-00000c cff6                      		rjmp derecha
+00000c f7b1                      		brne derecha
                                  
 00000d e302                      		LDI R16, 50
                                  
                                  	izquierda:
 00000e ef1f                      		SER R17
 00000f b915                      		OUT portb, r17
-000010 940e 0025                 		CALL delay_2_25ms
+000010 940e 0029                 		CALL delay_2_25ms
 000012 2711                      		CLR R17
 000013 b915                      		OUT portb, R17
 000014 940e 0019                 		Call delay_19ms
 000016 950a                      		dec R16
-000017 cff6                      		rjmp izquierda
+000017 f7b1                      		brne izquierda
                                  
 000018 cfe9                      		rjmp loop
                                  
@@ -1018,61 +1018,65 @@ AVRASM ver. 2.2.8  C:\Users\Javie\Documents\Atmel Studio\7.0\Controlador Servo\C
                                  delay_19ms:
 000019 932f                      	push R18
 00001a 933f                      	push R19
-                                 	; Assembly code auto-generated
-                                 	; by utility from Bret Mulvey
-                                 	; Delay 152 000 cycles
-                                 	; 19ms at 8.0 MHz
+00001b 934f                      	push R20
+                                 ; Assembly code auto-generated
+                                 ; by utility from Bret Mulvey
+                                 ; Delay 304 000 cycles
+                                 ; 19ms at 16 MHz
                                  
-00001b ec26                      		ldi  r18, 198
-00001c e636                      		ldi  r19, 102
-00001d 953a                      	L1: dec  r19
-00001e f7f1                      		brne L1
-00001f 952a                      		dec  r18
-000020 f7e1                      		brne L1
-000021 0000                      		nop
-                                 
-000022 913f                      		pop R19
-000023 912f                      		pop R18
-000024 9508                      		RET
+00001c e022                          ldi  r18, 2
+00001d e83b                          ldi  r19, 139
+00001e ec4c                          ldi  r20, 204
+00001f 954a                      L1: dec  r20
+000020 f7f1                          brne L1
+000021 953a                          dec  r19
+000022 f7e1                          brne L1
+000023 952a                          dec  r18
+000024 f7d1                          brne L1
+                                 		
+000025 914f                      		pop R20
+000026 913f                      		pop R19
+000027 912f                      		pop R18
+000028 9508                      		RET
                                  
                                  delay_2_25ms:
-000025 932f                      	push R18
-000026 933f                      	push R19
+000029 932f                      	push R18
+00002a 933f                      	push R19
                                  ; Assembly code auto-generated
                                  ; by utility from Bret Mulvey
-                                 ; Delay 18 000 cycles
-                                 ; 2ms 250us at 8.0 MHz
+                                 ; Delay 40 000 cycles
+                                 ; 2ms 500us at 16 MHz
                                  
-000027 e128                          ldi  r18, 24
-000028 e53f                          ldi  r19, 95
-000029 953a                      L2: dec  r19
-00002a f7f1                          brne L2
-00002b 952a                          dec  r18
-00002c f7e1                          brne L2
-00002d c000                          rjmp PC+1
+00002b e324                          ldi  r18, 52
+00002c ef32                          ldi  r19, 242
+00002d 953a                      L2: dec  r19
+00002e f7f1                          brne L2
+00002f 952a                          dec  r18
+000030 f7e1                          brne L2
+000031 0000                          nop
                                  
-00002e 913f                      	pop R19
-00002f 912f                      	pop R18
-000030 9508                      	RET
+000032 913f                      	pop R19
+000033 912f                      	pop R18
+000034 9508                      	RET
                                  
                                  delay_0_75ms:
-000031 932f                      push R18
-000032 933f                      push R19
+000035 932f                      push R18
+000036 933f                      push R19
                                  ; Assembly code auto-generated
                                  ; by utility from Bret Mulvey
-                                 ; Delay 6 000 cycles
-                                 ; 750us at 8.0 MHz
+                                 ; Delay 12 000 cycles
+                                 ; 750us at 16 MHz
                                  
-000033 e028                          ldi  r18, 8
-000034 ec3a                          ldi  r19, 202
-000035 953a                      L3: dec  r19
-000036 f7f1                          brne L3
-000037 952a                          dec  r18
-000038 f7e1                          brne L3
-000039 0000                          nop
+000037 e120                          ldi  r18, 16
+000038 e935                          ldi  r19, 149
+000039 953a                      L3: dec  r19
+00003a f7f1                          brne L3
+00003b 952a                          dec  r18
+00003c f7e1                          brne L3
                                  
-00003a 913f                      	pop R19
-00003b 912f                      	pop R18
+                                 
+00003d 913f                      	pop R19
+00003e 912f                      	pop R18
 
 
 RESOURCE USE INFORMATION
@@ -1092,26 +1096,26 @@ counted separately from r26..r31 here.
 "ATmega328P" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:   6 r17:   8 r18:  12 r19:  12 r20:   0 
+r13:   0 r14:   0 r15:   0 r16:   6 r17:   8 r18:  12 r19:  12 r20:   4 
 r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
 r29:   0 r30:   0 r31:   0 
-Registers used: 4 out of 35 (11.4%)
+Registers used: 5 out of 35 (14.3%)
 
 "ATmega328P" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
 brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
 brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :   6 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brne  :   9 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
 brvs  :   0 bset  :   0 bst   :   0 call  :   4 cbi   :   0 cbr   :   0 
 clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   2 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
-cpi   :   0 cpse  :   0 dec   :   8 eor   :   0 fmul  :   0 fmuls :   0 
+cpi   :   0 cpse  :   0 dec   :   9 eor   :   0 fmul  :   0 fmuls :   0 
 fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   0 jmp   :   0 
-ld    :   0 ldd   :   0 ldi   :   8 lds   :   0 lpm   :   0 lsl   :   0 
+ld    :   0 ldd   :   0 ldi   :   9 lds   :   0 lpm   :   0 lsl   :   0 
 lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   2 or    :   0 ori   :   0 out   :   5 pop   :   6 
-push  :   6 rcall :   0 ret   :   3 reti  :   0 rjmp  :   4 rol   :   0 
+neg   :   0 nop   :   1 or    :   0 ori   :   0 out   :   5 pop   :   7 
+push  :   7 rcall :   0 ret   :   3 reti  :   0 rjmp  :   1 rol   :   0 
 ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   0 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   3 ses   :   0 set   :   0 sev   :   0 
@@ -1122,7 +1126,7 @@ Instructions used: 12 out of 113 (10.6%)
 "ATmega328P" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x00007a    122      0    122   32768   0.4%
+[.cseg] 0x000000 0x000080    128      0    128   32768   0.4%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 
