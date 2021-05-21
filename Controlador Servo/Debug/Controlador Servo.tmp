@@ -22,14 +22,14 @@
   <FILE>Controlador Servo.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <loop><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>4</LINE></loop>
-  <derecha><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>7</LINE></derecha>
-  <delay_0_75ms><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>76</LINE></delay_0_75ms>
-  <delay_19ms><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>32</LINE></delay_19ms>
-  <izquierda><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>19</LINE></izquierda>
-  <delay_2_25ms><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>56</LINE></delay_2_25ms>
-  <L1><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>44</LINE></L1>
-  <L2><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>66</LINE></L2>
-  <L3><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>86</LINE></L3>
+  <loop><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>10</LINE></loop>
+  <derecha><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>13</LINE></derecha>
+  <delay_0_75ms><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>96</LINE></delay_0_75ms>
+  <delay_19ms><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>48</LINE></delay_19ms>
+  <izquierda><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>27</LINE></izquierda>
+  <delay_2_25ms><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>74</LINE></delay_2_25ms>
+  <L1><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>61</LINE></L1>
+  <L2><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>85</LINE></L2>
+  <L3><FILE>C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm</FILE><LINE>107</LINE></L3>
  </LABELS>
 </ASSEMBLER_INFO>

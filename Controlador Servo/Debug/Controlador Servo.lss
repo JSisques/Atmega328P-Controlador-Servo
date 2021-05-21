@@ -1,10 +1,10 @@
 
-AVRASM ver. 2.2.8  C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm Fri May 21 10:25:03 2021
+AVRASM ver. 2.2.8  C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlador-Servo\Controlador Servo\main.asm Fri May 21 10:41:07 2021
 
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m328Pdef.inc'
 [builtin](2): Including file 'C:/Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.6.364\avrasm\inc\m328Pdef.inc'
                                  
-                                 
+                                 /********************************************************
                                  
                                  ;***** Created: 2011-02-09 12:03 ******* Source: ATmega328P.xml **********
                                  ;*************************************************************************
@@ -985,98 +985,119 @@ AVRASM ver. 2.2.8  C:\Users\Javi\Documents\Atmel Studio\7.0\Atmega328P-Controlad
                                  
                                  ; ***** END OF FILE ******************************************************
                                  
-000000 ef0f                      SER R16
-000001 b904                      OUT DDRB, R16
+                                 
+                                 	Autor: Javier Plaza Sisqués
+                                 
+                                 ********************************************************/
+                                 
+000000 ef0f                      SER R16													;Ponemos a unos el registro 16
+000001 b904                      OUT DDRB, R16											;Habilitamos la salida para los puertos B
+                                 
                                  loop:
-000002 e302                      	LDI R16, 50
+000002 e302                      	LDI R16, 50											;Establecemos el valor 50 para R16, es 50 ya que 20ms x 50 = 1000ms => 1 seg
                                  
                                  	derecha:
-000003 ef1f                      		SER R17
-000004 b915                      		OUT portb, r17
-000005 940e 0035                 		CALL delay_0_75ms
-000007 2711                      		CLR R17
-000008 b915                      		OUT portb, R17
-000009 940e 0019                 		Call delay_19ms
-00000b 950a                      		dec R16
-00000c f7b1                      		brne derecha
+000003 ef1f                      		SER R17											;Ponemos a unos R17
+000004 b915                      		OUT portb, R17									;Sacamos el valor de R17 por los puertos B
+000005 940e 0035                 		CALL delay_0_75ms								;Delay de 0.75ms para poner el servo a la izquierda
                                  
-00000d e302                      		LDI R16, 50
+000007 2711                      		CLR R17											;Ponemos a ceros R17
+000008 b915                      		OUT portb, R17									;Sacamos el valor de R17 por los puertos B
+000009 940e 0019                 		CALL delay_19ms									;Delay de 19ms para completar los 20ms necesarios del servo
+                                 
+00000b 950a                      		DEC R16											;Decrementamos R16
+00000c f7b1                      		BRNE derecha									;Si R16 no ha llegado a cero volvemos al bucle derecha
+                                 
+00000d e302                      		LDI R16, 50										;Establecemos el valor 50 para R16
                                  
                                  	izquierda:
-00000e ef1f                      		SER R17
-00000f b915                      		OUT portb, r17
-000010 940e 0029                 		CALL delay_2_25ms
-000012 2711                      		CLR R17
-000013 b915                      		OUT portb, R17
-000014 940e 0019                 		Call delay_19ms
-000016 950a                      		dec R16
-000017 f7b1                      		brne izquierda
+00000e ef1f                      		SER R17											;Ponemos a unos R17
+00000f b915                      		OUT portb, R17									;Sacamos el valor de R17 por los puertos B
+000010 940e 0029                 		CALL delay_2_25ms								;Delay de 2.25ms para poner el servo a la derecha
                                  
-000018 cfe9                      		rjmp loop
+000012 2711                      		CLR R17											;Ponemos a ceros R17
+000013 b915                      		OUT portb, R17									;Sacamos el valor de R17 por los puertos B
+000014 940e 0019                 		CALL delay_19ms									;Delay de 19ms para completar los 20ms necesarios del servo
                                  
+000016 950a                      		DEC R16											;Decrementamos R16
+000017 f7b1                      		BRNE izquierda									;Si R16 no ha llegado a cero volvemos al bucle izquierda
+                                 
+000018 cfe9                      		RJMP loop										;Una vez hecho todo volvemos a repetir desde el principio
+                                 
+                                 
+                                 /********************************************************
+                                 
+                                 	Funciones de delay
+                                 
+                                 ********************************************************/
                                  
                                  delay_19ms:
-000019 932f                      	push R18
-00001a 933f                      	push R19
-00001b 934f                      	push R20
-                                 ; Assembly code auto-generated
-                                 ; by utility from Bret Mulvey
-                                 ; Delay 304 000 cycles
-                                 ; 19ms at 16 MHz
+000019 932f                      	PUSH R18											;Copia de seguridad del R18
+00001a 933f                      	PUSH R19											;Copia de seguridad del R19
+00001b 934f                      	PUSH R20											;Copia de seguridad del R20
                                  
-00001c e022                          ldi  r18, 2
-00001d e83b                          ldi  r19, 139
-00001e ec4c                          ldi  r20, 204
-00001f 954a                      L1: dec  r20
-000020 f7f1                          brne L1
-000021 953a                          dec  r19
-000022 f7e1                          brne L1
-000023 952a                          dec  r18
-000024 f7d1                          brne L1
+                                 	; Assembly code auto-generated
+                                 	; by utility from Bret Mulvey
+                                 	; Delay 304 000 cycles
+                                 	; 19ms at 16 MHz
+                                 
+00001c e022                      	ldi  r18, 2
+00001d e83b                      	ldi  r19, 139
+00001e ec4c                      	ldi  r20, 204
+                                 	L1: 
+00001f 954a                      		dec  r20
+000020 f7f1                      		brne L1
+000021 953a                      		dec  r19
+000022 f7e1                      		brne L1
+000023 952a                      		dec  r18
+000024 f7d1                      		brne L1
                                  		
-000025 914f                      		pop R20
-000026 913f                      		pop R19
-000027 912f                      		pop R18
-000028 9508                      		RET
+000025 914f                      	POP R20												;Reestablecemos el valor de R20
+000026 913f                      	POP R19												;Reestablecemos el valor de R19
+000027 912f                      	POP R18												;Reestablecemos el valor de R18
+000028 9508                      	RET													;Devolvemos la funcion
                                  
                                  delay_2_25ms:
-000029 932f                      	push R18
-00002a 933f                      	push R19
-                                 ; Assembly code auto-generated
-                                 ; by utility from Bret Mulvey
-                                 ; Delay 40 000 cycles
-                                 ; 2ms 500us at 16 MHz
+000029 932f                      	PUSH R18											;Copia de seguridad del R18
+00002a 933f                      	PUSH R19											;Copia de seguridad del R19
                                  
-00002b e324                          ldi  r18, 52
-00002c ef32                          ldi  r19, 242
-00002d 953a                      L2: dec  r19
-00002e f7f1                          brne L2
-00002f 952a                          dec  r18
-000030 f7e1                          brne L2
-000031 0000                          nop
+                                 	; Assembly code auto-generated
+                                 	; by utility from Bret Mulvey
+                                 	; Delay 40 000 cycles
+                                 	; 2ms 500us at 16 MHz
                                  
-000032 913f                      	pop R19
-000033 912f                      	pop R18
-000034 9508                      	RET
+00002b e324                      	ldi  r18, 52
+00002c ef32                      	ldi  r19, 242
+                                 	L2: 
+00002d 953a                      		dec  r19
+00002e f7f1                      		brne L2
+00002f 952a                      		dec  r18
+000030 f7e1                      		brne L2
+000031 0000                      		nop
+                                 
+000032 913f                      	POP R19												;Reestablecemos el valor de R19
+000033 912f                      	POP R18												;Reestablecemos el valor de R18
+000034 9508                      	RET													;Devolvemos la funcion
                                  
                                  delay_0_75ms:
-000035 932f                      push R18
-000036 933f                      push R19
-                                 ; Assembly code auto-generated
-                                 ; by utility from Bret Mulvey
-                                 ; Delay 12 000 cycles
-                                 ; 750us at 16 MHz
+000035 932f                      	PUSH R18											;Copia de seguridad del R18
+000036 933f                      	PUSH R19											;Copia de seguridad del R19
                                  
-000037 e120                          ldi  r18, 16
-000038 e935                          ldi  r19, 149
-000039 953a                      L3: dec  r19
-00003a f7f1                          brne L3
-00003b 952a                          dec  r18
-00003c f7e1                          brne L3
+                                 	; Assembly code auto-generated
+                                 	; by utility from Bret Mulvey
+                                 	; Delay 12 000 cycles
+                                 	; 750us at 16 MHz
                                  
+000037 e120                      	ldi  r18, 16
+000038 e935                      	ldi  r19, 149
+                                 	L3: 
+000039 953a                      		dec  r19
+00003a f7f1                      		brne L3
+00003b 952a                      		dec  r18
+00003c f7e1                      		brne L3
                                  
-00003d 913f                      	pop R19
-00003e 912f                      	pop R18
+00003d 913f                      	POP R19												;Reestablecemos el valor de R19
+00003e 912f                      	POP R18												;Reestablecemos el valor de R18
 
 
 RESOURCE USE INFORMATION
